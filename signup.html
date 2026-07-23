@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - QUASTECH</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="text-logo">QUASTECH</div>
+    <div class="tagline">Create your account</div>
+    <form id="signupForm" class="form-card">
+        <h2>Student Sign Up</h2>
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <label>Registration Number</label>
+        <input type="text" id="registration_number" placeholder="Registration Number" required>
+        <label>Mobile (10 digits)</label>
+        <input type="tel" id="mobile" placeholder="Mobile" required>
+        <label>Year</label>
+        <div class="year">
+            <label><input type="radio" name="year" value="FYBCA"> FYBCA</label>
+            <label><input type="radio" name="year" value="SYBCA"> SYBCA</label>
+            <label><input type="radio" name="year" value="TYBCA"> TYBCA</label>
+        </div>
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Create Password (min 6 chars)" required>
+        <div id="signupMessage"></div>
+        <button type="submit">Submit</button>
+    </form>
+    <div class="auth-link">
+        Already have an account? <a href="{{ url_for('login') }}">Login</a>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

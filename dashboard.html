@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - QUASTECH</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dashboard">
+<div class="dashboard-container">
+    <!-- Header -->
+    <div class="dashboard-header">
+        <div class="student-info">
+            <span class="student-name">👤 {{ student_name }}</span>
+            <span class="student-reg">ID: {{ reg_number }}</span>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('attendance_page') }}" class="btn small">📋 Attendance</a>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo-small">
+            <a href="{{ url_for('logout') }}" class="btn small logout">🚪 Logout</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-section">
+        <button class="nav-btn" id="settingsBtn">⚙️ Settings</button>
+        <div class="settings-dropdown" id="settingsDropdown" style="display:none;">
+            <button class="setting-item" onclick="location.href='{{ url_for('profile') }}'">📄 Profile</button>
+            <button class="setting-item" id="themeBtn">🎨 Theme</button>
+            <div class="theme-options" id="themeOptions" style="display:none;">
+                <button class="theme-option" data-theme="dark">Dark</button>
+                <button class="theme-option" data-theme="light">Light</button>
+            </div>
+            <button class="setting-item" id="calendarBtn">📅 Calendar</button>
+            <div class="calendar-container" id="calendarContainer" style="display:none;">
+                <div class="calendar-header">
+                    <button id="prevMonth">◀</button>
+                    <span id="calendarMonth">January 2025</span>
+                    <button id="nextMonth">▶</button>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Blocks -->
+    <div class="stats-blocks">
+        <div class="stat-block present">
+            <h3>Present</h3>
+            <p>{{ stats.present }}</p>
+        </div>
+        <div class="stat-block absent">
+            <h3>Absent</h3>
+            <p>{{ stats.absent }}</p>
+        </div>
+        <div class="stat-block working">
+            <h3>Working Days</h3>
+            <p>{{ stats.working_days }}</p>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

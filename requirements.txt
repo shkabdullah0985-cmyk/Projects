@@ -1,0 +1,6 @@
+Flask==3.0.3
+Werkzeug==3.0.3
+PyMySQL==1.0.2
+pytz==2023.3
+openpyxl==3.1.2
+python-dotenv==1.0.0

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - QUASTECH</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="text-logo">QUASTECH</div>
+    <div class="tagline">Login to your account</div>
+    <form id="loginForm" class="form-card">
+        <h2>Student Login</h2>
+        <label>Registration Number</label>
+        <input type="text" id="registration_number" placeholder="Registration Number" required>
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Password" required>
+        <div id="loginMessage"></div>
+        <button type="submit">Login</button>
+    </form>
+    <div class="auth-link">
+        Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

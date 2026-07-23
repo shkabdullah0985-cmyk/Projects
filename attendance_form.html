@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance - QUASTECH</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="text-logo">QUASTECH</div>
+    <div class="tagline">Mark Your Attendance</div>
+
+    <form id="attendanceForm" class="form-card">
+        <h2>Attendance</h2>
+
+        <label>Registration Number</label>
+        <input type="text" id="registration_number" value="{{ session['registration_number'] }}" readonly>
+
+        <label>Year</label>
+        <div class="year">
+            <label><input type="radio" name="year" value="FYBCA"> FYBCA</label>
+            <label><input type="radio" name="year" value="SYBCA"> SYBCA</label>
+            <label><input type="radio" name="year" value="TYBCA"> TYBCA</label>
+        </div>
+
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+
+        <div id="attendanceMessage"></div>
+        <button type="submit">Mark Attendance</button>
+    </form>
+
+    <div style="text-align:center; margin-top:15px;">
+        <a href="{{ url_for('dashboard') }}" style="color:#007bff; text-decoration:none;">⬅ Back to Dashboard</a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
